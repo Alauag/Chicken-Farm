@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="養雞場｜原創手繪小雞 IP 與日常文創小物">
+<title>養雞場｜今天也來養一隻雞</title>
+<style>
+:root{
+  --cream:#fffaf0; --paper:#fffdf8; --ink:#51483d; --muted:#887d6e;
+  --yellow:#f4d77b; --orange:#e99a65; --green:#a9b99a; --pink:#efc9bd;
+  --line:#e9dfcf; --shadow:0 10px 30px rgba(92,72,45,.08);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:"Noto Sans TC","Microsoft JhengHei",sans-serif;line-height:1.7}
+a{color:inherit;text-decoration:none}
+.wrap{width:min(1080px,90%);margin:auto}
+header{padding:20px 0;border-bottom:1px solid var(--line);background:rgba(255,250,240,.92);position:sticky;top:0;z-index:5;backdrop-filter:blur(10px)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:20px}
+.logo{font-size:1.35rem;font-weight:900;letter-spacing:.12em}
+.logo span{display:inline-block;background:var(--yellow);border-radius:50%;padding:2px 9px;margin-right:7px}
+nav{display:flex;gap:24px;font-size:.92rem;color:var(--muted)}
+nav a:hover{color:var(--ink)}
+.hero{padding:74px 0 66px;display:grid;grid-template-columns:1.1fr .9fr;align-items:center;gap:36px}
+.eyebrow{display:inline-block;background:#f7edcf;padding:5px 13px;border-radius:99px;font-size:.82rem;letter-spacing:.08em}
+h1{font-size:clamp(2.5rem,6vw,4.5rem);line-height:1.15;margin:18px 0}
+h1 em{font-style:normal;color:#c9824f}
+.hero p{color:var(--muted);font-size:1.05rem;max-width:490px}
+.btn{display:inline-block;margin-top:17px;padding:12px 23px;background:var(--ink);color:white;border-radius:99px;font-weight:700}
+.btn:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
+.artboard{min-height:330px;background:#f8edcf;border-radius:48% 52% 46% 54% / 48% 43% 57% 52%;display:grid;place-items:center;position:relative;overflow:hidden}
+.sun{position:absolute;width:220px;height:220px;background:#f4d77b;border-radius:50%;right:10%;top:7%;opacity:.7}
+.chick{position:relative;width:190px;height:170px;background:#f6d66f;border-radius:48% 48% 43% 43%;box-shadow:inset -12px -8px 0 rgba(205,151,59,.12);transform:rotate(-5deg);z-index:1}
+.chick:before{content:"";position:absolute;width:48px;height:25px;background:#e9a05e;clip-path:polygon(0 40%,100% 0,100% 100%);left:145px;top:75px}
+.chick:after{content:"";position:absolute;width:35px;height:22px;background:#e99a65;border-radius:50% 50% 40% 40%;top:-12px;left:70px;box-shadow:22px 2px 0 #e99a65}
+.eye{position:absolute;width:10px;height:13px;background:#51483d;border-radius:50%;top:66px;left:54px;box-shadow:55px 0 #51483d}
+.blush{position:absolute;width:25px;height:13px;background:#e9a08e;border-radius:50%;top:91px;left:35px;opacity:.8;box-shadow:65px 0 #e9a08e}
+.beak{position:absolute;top:82px;left:83px;width:25px;height:17px;background:#e99a65;clip-path:polygon(0 0,100% 50%,0 100%)}
+.foot{position:absolute;bottom:-14px;left:53px;width:28px;height:18px;border-bottom:5px solid #d98d54;border-radius:50%}
+.foot.two{left:112px}
+.spark{position:absolute;font-size:2rem;color:#d69c4d}
+.spark.one{left:13%;top:24%}.spark.two{right:13%;bottom:20%;font-size:1.4rem}
+section{padding:62px 0}
+.section-head{text-align:center;margin-bottom:32px}
+.section-head h2{font-size:2rem;margin:0 0 8px}
+.section-head p{margin:0;color:var(--muted)}
+.about{background:var(--paper);border-block:1px solid var(--line)}
+.about-card{max-width:760px;margin:auto;text-align:center;font-size:1.04rem}
+.products{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:22px;overflow:hidden;box-shadow:var(--shadow)}
+.product-art{height:180px;display:grid;place-items:center;font-size:4.2rem}
+.bg1{background:#f7edcf}.bg2{background:#f4dfd6}.bg3{background:#e7eddf}
+.card-body{padding:18px 20px}
+.card h3{margin:0 0 5px;font-size:1.08rem}
+.card p{margin:0;color:var(--muted);font-size:.9rem}
+.price{display:block;margin-top:12px;font-weight:800;color:#bd7848}
+.note{text-align:center;color:var(--muted);font-size:.85rem;margin-top:20px}
+.story{background:#f5ead2}
+.story-box{max-width:800px;margin:auto;background:var(--paper);border-radius:25px;padding:30px;text-align:center;border:1px dashed #d9c7a8}
+.story-box p{margin:0;color:var(--muted)}
+.contact{text-align:center}
+.contact p{color:var(--muted)}
+footer{padding:24px 0;text-align:center;color:var(--muted);border-top:1px solid var(--line);font-size:.85rem}
+@media(max-width:720px){
+ .hero{grid-template-columns:1fr;padding:48px 0}.artboard{min-height:260px}
+ nav{gap:12px;font-size:.82rem}.products{grid-template-columns:1fr}
+ .product-art{height:145px}.logo{font-size:1.1rem}
+}
+</style>
+</head>
+<body>
+<header>
+ <div class="wrap nav">
+  <a class="logo" href="#"><span>🐣</span>養雞場</a>
+  <nav><a href="#about">關於養雞場</a><a href="#products">商品一覽</a><a href="#contact">聯絡我們</a></nav>
+ </div>
+</header>
+<main>
+ <div class="wrap hero">
+  <div>
+   <span class="eyebrow">ORIGINAL CHICKEN CHARACTERS</span>
+   <h1>今天也來<br><em>養一隻雞。</em></h1>
+   <p>這裡收留各式各樣的小雞。每一隻都有自己的模樣和個性，陪你把平凡日常變得有趣一點。</p>
+   <a class="btn" href="#products">逛逛小雞商品　→</a>
+  </div>
+  <div class="artboard" aria-label="養雞場小雞插畫">
+   <div class="sun"></div><span class="spark one">✦</span><span class="spark two">✧</span>
+   <div class="chick"><i class="eye"></i><i class="blush"></i><i class="beak"></i><i class="foot"></i><i class="foot two"></i></div>
+  </div>
+ </div>
+ <section class="about" id="about">
+  <div class="wrap">
+   <div class="section-head"><h2>關於養雞場</h2><p>從一群朋友與一群小雞開始</p></div>
+   <div class="about-card">
+    <p>養雞場創立於 2023 年，由創作者與朋友一起發想。最初只是覺得畫出各種不同類型的小雞很有趣，也把自己和朋友變成小雞角色。於是，一座收集不同個性、不同模樣小雞的養雞場，就這樣誕生了。</p>
+   </div>
+  </div>
+ </section>
+ <section id="products">
+  <div class="wrap">
+   <div class="section-head"><h2>小雞商品一覽</h2><p>把喜歡的小雞帶回家！</p></div>
+   <div class="products">
+    <article class="card"><div class="product-art bg1">🐥</div><div class="card-body"><h3>小雞造型貼紙</h3><p>各種表情與造型，貼在手帳或日常小物上。</p><span class="price">NT$30 起</span></div></article>
+    <article class="card"><div class="product-art bg2">💌</div><div class="card-body"><h3>原創插畫明信片</h3><p>收藏小雞們的日常，也可以寄給朋友。</p><span class="price">NT$40–50</span></div></article>
+    <article class="card"><div class="product-art bg3">🃏</div><div class="card-body"><h3>小雞收藏小卡</h3><p>收集不同雞種與角色，看看今天遇見哪一隻。</p><span class="price">NT$30–100</span></div></article>
+   </div>
+   <p class="note">以上為預計販售品項與價格示意，實際品項、款式及售價以市集現場公告為準。</p>
+  </div>
+ </section>
+ <section class="story">
+  <div class="wrap">
+   <div class="section-head"><h2>每一隻雞，都有自己的故事</h2><p>持續孵化新角色與限定主題</p></div>
+   <div class="story-box"><p>除了日常小雞，也會不定期推出結合地方特色、校園生活與市集主題的限定插畫。歡迎來養雞場認識新朋友！</p></div>
+  </div>
+ </section>
+ <section class="contact" id="contact">
+  <div class="wrap">
+   <div class="section-head"><h2>找到養雞場</h2><p>想看更多小雞、詢問商品或合作？歡迎透過社群聯絡。</p></div>
+   <p>Instagram／Threads：請在這裡填入你的帳號</p>
+   <a class="btn" href="mailto:hello@example.com">聯絡養雞場</a>
+  </div>
+ </section>
+</main>
+<footer>© 2026 養雞場 Chicken Farm · All little chicks are original characters.</footer>
+</body>
+</html>
